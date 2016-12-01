@@ -23,18 +23,23 @@ elm-reactor
 Now the examples can be viewed at [http://localhost:8000/](http://localhost:8000/). Just open it with a browser of your choice.
 
 ## Live Reloading
-To enable live reloading (reloading the page when a corresponding file has been changed), you need to install two more tools:  
-1. A live reload server. We used a live reload server built on top of Node.js. You can install it with:
+To enable live reloading (reloading the page when a corresponding file has been changed), you need to install two more tools: 
+
+#### Live Reload Server
+We used a live reload server built on top of Node.js. You can install it with:
 ```
 sudo npm install -g livereload
 ```
 Resources:
 [https://github.com/napcs/node-livereload](https://github.com/napcs/node-livereload)
 [https://www.npmjs.com/package/livereload](https://www.npmjs.com/package/livereload)
-2. A live reload client. We used the browser extension from the original live reload server:
+
+#### Live Reload Client
+We used the browser extension from the original live reload server:
 [http://livereload.com/extensions/](http://livereload.com/extensions/)
 It is available for Chrome, Firefox, and Safari and can be installed from the corresponding add-on pages / extension stores.
 
+#### Starting Live Reload
 After installing the tools, the live reload server can be started with:
 ```
 livereload -e 'elm' /path/to/project/folder
