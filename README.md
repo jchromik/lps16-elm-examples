@@ -28,7 +28,7 @@ To enable live reloading (reloading the page when a corresponding file has been 
 ```
 sudo npm install -g livereload
 ```
-Resources:  
+Resources:
 [https://github.com/napcs/node-livereload](https://github.com/napcs/node-livereload)
 [https://www.npmjs.com/package/livereload](https://www.npmjs.com/package/livereload)
 2. A live reload client. We used the browser extension from the original live reload server:
