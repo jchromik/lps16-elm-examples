@@ -31,6 +31,6 @@ update msg model =
 view : Model -> Html Msg
 view model =
   div []
-    [ input [ placeholder "plop", onInput Change ] []
+    [ input [ placeholder "Feed me Numbers!", onInput Change ] []
     , div [] [ text (filter isDigit model) ]
     ]
