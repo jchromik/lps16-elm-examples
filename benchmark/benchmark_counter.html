@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: auto;
+      overflow: hidden;
+    }
+  </style>
+  <script>
+    var benchmarkCount = 0;
+    var isBenchmark = false;
+    var startTime;
+    function benchmark(count) {
+      benchmarkCount = count;
+      singleBenchmark();
+    }
+    function benchmarkWithMessages(numberOfMessages, count) {
+      for(var i=0; i<numberOfMessages; i++) {
+        document.getElementById("elmApplication").contentWindow.document.getElementsByTagName("button")[0].click();
+      }
+      benchmark(count);
+    }
+    function singleBenchmark() {
+      isBenchmark = true;
+      startTime = Date.now();
+      document.getElementById("elmApplication").contentWindow.location.reload()
+    }
+    function replayFinished() {
+      if(isBenchmark) {
+        console.log(Date.now() - startTime);
+      }
+      if(benchmarkCount > 0) {
+        benchmarkCount--;
+        singleBenchmark();
+      }
+    }
+  </script>
+</head>
+<body>
+  <iframe
+    id="elmApplication"
+    src="http://localhost:8000/Counter.elm"
+    style="width: 100%; height: calc(100% - 40px)">
+  </iframe></br>
+  <button type="button" onclick="benchmark(10)">start benchmark (0 messages)</button>
+  <button type="button" onclick="benchmarkWithMessages(100, 10)">start benchmark (100 messages)</button>
+</body>
+</html>
