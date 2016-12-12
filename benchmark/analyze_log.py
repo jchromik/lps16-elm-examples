@@ -17,7 +17,7 @@ starts = timestamps[::2]
 ends = timestamps[1::2]
 
 runtimes = [ (e-s) for s,e in zip(starts,ends) ]
-print runtimes
+
 print reduce(add, runtimes)/len(runtimes)
 
 logfile.close()
