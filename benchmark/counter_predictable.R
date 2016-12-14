@@ -18,6 +18,7 @@ cp$messages <- as.factor(cp$messages)
 cp_plot <- ggplot(cp, aes(messages, runtime))
 cp_plot +
   geom_boxplot() +
+  ggtitle("counter predictable") + 
   xlab("message sends") +
   ylab("runtime / ms") +
   theme_light()
