@@ -5,9 +5,24 @@ import re
 import sys
 
 def main():
+    if len(sys.argv) < 2:
+        printusage()
+        return
+
     filename = sys.argv[1]
     runtimes = readruntimes(filename)
-    printsummary(runtimes)
+
+    if len(sys.argv) < 3:
+        printsummary(runtimes)
+        return
+
+    if sys.argv[2] == "--csv":
+        writecsv(runtimes, filename)
+    if sys.argv[2] == "--summary":
+        printsummary(runtimes)
+
+def printusage():
+    print sys.argv[0] + " FILENAME [--csv | --summary]"
 
 def readruntimes(filename):
     logfile = open(filename, 'r')
@@ -38,8 +53,15 @@ def printsummary(runtimes):
     print "min (0%)       : ", numpy.min(runtimes)
     print "------------------------------"
 
-def writecsv(runtimes):
-    # TBD
+def writecsv(runtimes, filename):
+    filename = filename + ".csv"
+    csvfile = open(filename, 'w')
+    csvfile.write("runtime\n")
+
+    for runtime in runtimes:
+        csvfile.write(str(runtime) + "\n")
+
+    csvfile.close()
 
 if __name__=="__main__":
    main()
